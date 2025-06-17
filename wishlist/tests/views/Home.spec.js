@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
 
-// Criar o mock fora para manter a referência
 const fetchProductsMock = vi.fn();
 
 vi.mock("@/stores/products", () => {
@@ -16,7 +15,7 @@ vi.mock("@/stores/products", () => {
 
 import Home from "@/views/Home.vue";
 
-describe("Home.vue", () => {
+describe("Home", () => {
   beforeEach(() => {
     fetchProductsMock.mockClear();
     setActivePinia(createPinia());

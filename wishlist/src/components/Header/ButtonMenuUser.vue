@@ -24,7 +24,6 @@ onMounted(() => {
     @mouseleave="!isMobile && (showMenu = false)"
     @click="isMobile && (showMenu = !showMenu)"
   >
-    <!-- Ícone só no desktop -->
     <img
       v-if="!isMobile"
       class="person-icon"
@@ -32,12 +31,10 @@ onMounted(() => {
       alt="Ícone do usuário"
     />
 
-    <!-- Dropdown desktop -->
     <div v-if="!isMobile && showMenu" class="menu-content">
       <p v-for="option in optionsMenu" :key="option">{{ option }}</p>
     </div>
 
-    <!-- Lista fixa mobile SEM ícone -->
     <div v-if="isMobile" class="menu-content static-list">
       <p v-for="option in optionsMenu" :key="option">{{ option }}</p>
     </div>

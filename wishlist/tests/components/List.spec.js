@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import List from "@/components/List.vue";
 import Card from "@/components/Card.vue";
 
-describe("List.vue", () => {
+describe("List", () => {
   const productsMock = [
     {
       code: "p1",

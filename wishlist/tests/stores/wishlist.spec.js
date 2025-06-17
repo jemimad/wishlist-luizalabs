@@ -13,7 +13,6 @@ describe("useWishlistStore", () => {
 
     store.addToWishlist("item1");
 
-    // Espera o watch salvar no localStorage
     await nextTick();
 
     expect(store.wishlist).toContain("item1");

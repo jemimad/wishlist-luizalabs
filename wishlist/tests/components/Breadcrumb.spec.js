@@ -17,7 +17,7 @@ const createWrapper = async (routeName) => {
     routes,
   });
 
-  await router.push({ name: routeName }); // <--- ESSENCIAL
+  await router.push({ name: routeName });
   await router.isReady();
 
   return mount(Breadcrumb, {
@@ -27,7 +27,7 @@ const createWrapper = async (routeName) => {
   });
 };
 
-describe("Breadcrumb.vue", () => {
+describe("Breadcrumb", () => {
   it('mostra apenas "Home" quando está na rota Home', async () => {
     const wrapper = await createWrapper("Home");
 

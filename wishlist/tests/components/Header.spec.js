@@ -2,7 +2,6 @@ import { mount } from "@vue/test-utils";
 import Header from "@/components/Header/Header.vue";
 import { nextTick } from "vue";
 
-// Mock dos componentes filhos
 vi.mock("@/components/ButtonMenuUser.vue", () => ({
   default: {
     name: "ButtonMenuUser",
@@ -18,7 +17,7 @@ vi.mock("@/components/ButtonWishlist.vue", () => ({
   },
 }));
 
-describe("Header.vue", () => {
+describe("Header", () => {
   const resizeWindow = (width) => {
     window.innerWidth = width;
     window.dispatchEvent(new Event("resize"));

@@ -14,7 +14,7 @@ vi.mock("@/stores/wishlist", () => ({
   }),
 }));
 
-describe("Card.vue", () => {
+describe("Card", () => {
   const defaultProps = {
     code: "123",
     name: "Produto Teste",
