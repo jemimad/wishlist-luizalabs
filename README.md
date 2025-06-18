@@ -1,6 +1,6 @@
 # Wishlist Luizalabs
 
-Aplicativo de wishlist com produtos, desenvolvido com Vue 3, Pinia, Vite e uma API mockada com JSON Server.
+Aplicativo de wishlist com produtos, desenvolvido com Vue 3, Pinia, Vite e API com NodeJs + Express
 
 ## 📁 Estrutura do Projeto
 
@@ -25,8 +25,8 @@ cd wishlist-luizalabs
 
 ```bash
 cd api
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 > A API roda por padrão em: `http://localhost:3000/products`
@@ -49,6 +49,7 @@ yarn dev
 - Pinia (Store)
 - Vue Router
 - Vitest + Vue Test Utils
+- NodeJs + Express
 
 ---
 
@@ -63,7 +64,7 @@ yarn dev
 
 ## ✅ Testes
 
-Para rodar os testes unitários:
+Para rodar os testes unitários no front:
 
 ```bash
 yarn test
