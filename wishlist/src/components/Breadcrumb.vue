@@ -5,36 +5,31 @@ import { computed } from "vue";
 const route = useRoute();
 
 const breadcrumbs = computed(() => {
-  if (route.name === "Home") {
-    return [{ name: "Home", label: "Home" }];
-  } else if (route.name === "Wishlist") {
-    return [
-      { name: "Home", label: "Home" },
-      { name: "Wishlist", label: "Wishlist" },
-    ];
+  if (route.name === "Wishlist") {
+    return ["Home", "Wishlist"];
   }
-  return [{ name: "Home", label: "Home" }];
+  return ["Home"];
 });
 
 const isCurrent = (name) => route.name === name;
 </script>
 
 <template>
-  <nav class="breadcrumb" v-if="breadcrumbs.length">
+  <nav class="breadcrumb">
     <ul>
       <li
         v-for="(crumb, index) in breadcrumbs"
-        :key="crumb.name"
-        :class="{ current: isCurrent(crumb.name) }"
+        :key="index"
+        :class="{ current: isCurrent(crumb) }"
       >
         <router-link
-          v-if="!isCurrent(crumb.name)"
-          :to="{ name: crumb.name }"
+          v-if="!isCurrent(crumb)"
+          :to="{ name: crumb }"
           class="link"
         >
-          {{ crumb.label }}
+          {{ crumb }}
         </router-link>
-        <span v-else>{{ crumb.label }}</span>
+        <span v-else>{{ crumb }}</span>
 
         <span v-if="index < breadcrumbs.length - 1" class="separator">/</span>
       </li>
