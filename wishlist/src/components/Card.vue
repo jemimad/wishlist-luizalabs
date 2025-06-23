@@ -1,5 +1,5 @@
 <template>
-  <div class="card" v-if="visible">
+  <div class="card" v-if="visible" @click="showModal = true">
     <button
       v-if="isInWishlist(code)"
       class="favorite wishlist"
@@ -36,13 +36,21 @@
       </p>
     </div>
   </div>
+  <ModalDetalhes
+    v-if="showModal"
+    :name="name"
+    :priceInCents="priceInCents"
+    :rating="rating"
+    @close="showModal = false"
+  />
 </template>
 
 <script setup>
-import { inject, computed } from "vue";
+import { inject, computed, ref } from "vue";
 import { formatCurrency } from "../utils/utils";
 import StarRating from "vue-star-rating";
 import { useWishlistStore } from "../stores/wishlist";
+import ModalDetalhes from "./ModalDetalhes.vue";
 
 const wishlistStore = useWishlistStore();
 
@@ -56,6 +64,8 @@ const props = defineProps({
   image: String,
   fromWishlist: false,
 });
+
+const showModal = ref(false);
 
 const iconSrc = computed(() =>
   props.fromWishlist
